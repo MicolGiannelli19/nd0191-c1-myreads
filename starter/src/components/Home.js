@@ -1,10 +1,10 @@
-import Book from "./Book";
+// import Book from "./Book";
 import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="list-books">
       <h1>This is the Home Page</h1>
-      <Link> GO TO Search</Link>
+      <Link to="/search"> GO TO Search</Link>
     </div>
   );
 }
