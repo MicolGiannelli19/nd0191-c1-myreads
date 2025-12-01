@@ -1,11 +1,13 @@
 // This is my search books view
 // import Book from "./Book";
 import { Link } from "react-router-dom";
+import TestApi from "./TestApi";
 
 export default function SearchBooks() {
   return (
     <div className="search-books">
       <div className="search-books-bar">
+        <TestApi></TestApi>
         <Link className="close-search" to="/">
           {" "}
           Back to home{" "}
