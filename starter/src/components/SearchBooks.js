@@ -6,7 +6,10 @@ export default function SearchBooks() {
   return (
     <div className="search-books">
       <div className="search-books-bar">
-        <Link to="/"> Back to home </Link>
+        <Link className="close-search" to="/">
+          {" "}
+          Back to home{" "}
+        </Link>
         <div className="search-books-input-wrapper">
           <input type="text" placeholder="Search by title, author, or ISBN" />
         </div>
