@@ -4,9 +4,10 @@ import { get, getAll, search, update } from "../BooksAPI";
 function TestApi() {
   useEffect(() => {
     console.log("UseEffect running");
+    getAll().then((books) => console.log("Books: ", books));
 
-    const getAllResponse = getAll(); // TODO: Set up correct sytax for asyncrinous api call
-    console.log(getAllResponse);
+    console.log("Running Search Query");
+    search("a").then((result) => console.log(result));
   }, []);
 
   return <div>TEST API component</div>;
