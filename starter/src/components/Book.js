@@ -1,6 +1,6 @@
 // TODO: of basic component strucutre
 
-export default function Book() {
+export default function Book({ book }) {
   return (
     <div className="book">
       <div className="book-top">
@@ -26,7 +26,7 @@ export default function Book() {
           </select>
         </div>
       </div>
-      <div className="book-title">To Kill a Mockingbird</div>
+      <div className="book-title">{book.title}</div>
       <div className="book-authors">Harper Lee</div>
     </div>
   );

@@ -1,9 +1,7 @@
 import Book from "./Book";
 
-export default function BookShelf({ title }) {
+export default function BookShelf({ title, books }) {
   // TODO: correctly add in book component
-  const books = [{}];
-
   return (
     <div className="bookshelf">
       <h2 className="bookshelf-title">{title}</h2>

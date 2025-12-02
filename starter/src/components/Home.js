@@ -1,5 +1,6 @@
 import Book from "./Book";
 import BookShelf from "./BookShelf";
+import { getAll } from "../BooksAPI";
 
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -8,7 +9,12 @@ export default function Home() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    setBooks([{}, {}, {}]); // MOCK: call actual get all function form api
+    async function fetchBooks() {
+      const data = await getAll();
+      setBooks(data);
+    }
+
+    fetchBooks();
   }, []);
 
   return (
@@ -19,14 +25,14 @@ export default function Home() {
 
       <div className="list-books-content">
         <div>
-          <BookShelf title="Currently Reading"></BookShelf>
+          <BookShelf title="Currently Reading" books={books}></BookShelf>
           <div className="bookshelf">
             <h2 className="bookshelf-title">Want to Read</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
                 {books.map((book) => (
                   <li>
-                    <Book></Book>
+                    <Book key={book.id}></Book>
                   </li>
                 ))}
               </ol>
@@ -38,7 +44,7 @@ export default function Home() {
               <ol className="books-grid">
                 {books.map((book) => (
                   <li>
-                    <Book></Book>
+                    <Book key={book.id} book={book}></Book>
                   </li>
                 ))}
               </ol>
