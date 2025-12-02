@@ -32,3 +32,22 @@ fetch("https://reactnd-books-api.udacity.com/books", {
 ```
 
 3. !!IMPORTANT you cannot make useffects main function asycrounous
+
+JavaScript operates in a single-threaded environment, meaning only one piece of code runs at a time
+
+The event loop ensures that tasks are executed in the correct order, enabling asynchronous programming.
+
+understanding the js event loop
+https://medium.com/@ignatovich.dm/the-javascript-event-loop-explained-with-examples-d8f7ddf0861d
+
+note when handling nested json you can use the following optional chaining states
+
+```js
+data.user?.address?.city;
+```
+
+note you should be comtarble with this syntax please review
+
+```js
+setUser((prev) => ({ ...prev, age: 31 }));
+```
