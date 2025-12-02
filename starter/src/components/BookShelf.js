@@ -1,6 +1,7 @@
 import Book from "./Book";
 
 export default function BookShelf({ title }) {
+  // TODO: correctly add in book component
   const books = [{}];
 
   return (
