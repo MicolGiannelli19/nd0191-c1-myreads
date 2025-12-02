@@ -9,6 +9,7 @@ export default function Home() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
+    // TODO: check this way of using use effect
     async function fetchBooks() {
       const data = await getAll();
       setBooks(data);
@@ -32,7 +33,7 @@ export default function Home() {
               <ol className="books-grid">
                 {books.map((book) => (
                   <li>
-                    <Book key={book.id}></Book>
+                    <Book key={book.id} book={book}></Book>
                   </li>
                 ))}
               </ol>

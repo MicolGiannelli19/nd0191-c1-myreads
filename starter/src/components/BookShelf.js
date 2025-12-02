@@ -8,11 +8,13 @@ export default function BookShelf({ title, books }) {
       <div className="bookshelf-books">
         <ol className="books-grid">
           {/*  TODO: add key to each component when looping through*/}
-          {books.map((book) => (
-            <li>
-              <Book></Book>
-            </li>
-          ))}
+          {books.map((book) => {
+            return (
+              <li>
+                <Book book={book}></Book>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </div>
