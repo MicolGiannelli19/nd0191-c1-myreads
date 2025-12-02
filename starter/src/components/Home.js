@@ -20,6 +20,7 @@ export default function Home() {
             <h2 className="bookshelf-title">Currently Reading</h2>
             <div className="bookshelf-books">
               <ol className="books-grid">
+                {/*  TODO: add key to each component when looping through list*/}
                 {books.map((book) => (
                   <li>
                     <Book></Book>

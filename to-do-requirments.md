@@ -51,3 +51,15 @@ note you should be comtarble with this syntax please review
 ```js
 setUser((prev) => ({ ...prev, age: 31 }));
 ```
+
+WARNING: AVOID PROP CLUTTER LIKE THIS PASS IN OBJECT DIRECTLY
+
+```jsx
+<Book
+  name={book.name}
+  author={book.author}
+  price={book.price}
+  rating={book.rating}
+  image={book.image}
+/>
+```
