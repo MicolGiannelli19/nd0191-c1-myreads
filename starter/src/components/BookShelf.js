@@ -11,7 +11,7 @@ export default function BookShelf({ title, books }) {
           {books.map((book) => {
             return (
               <li>
-                <Book book={book}></Book>
+                <Book key={book.id} book={book}></Book>
               </li>
             );
           })}

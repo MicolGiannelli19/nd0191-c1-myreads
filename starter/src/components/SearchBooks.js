@@ -6,15 +6,15 @@ import TestApi from "./TestApi";
 export default function SearchBooks() {
   return (
     <div className="search-books">
+      <Link className="close-search" to="/">
+        {" "}
+        Back to home{" "}
+      </Link>
+      <div className="search-books-input-wrapper">
+        <input type="text" placeholder="Search by title, author, or ISBN" />
+      </div>
       <div className="search-books-bar">
         <TestApi></TestApi>
-        <Link className="close-search" to="/">
-          {" "}
-          Back to home{" "}
-        </Link>
-        <div className="search-books-input-wrapper">
-          <input type="text" placeholder="Search by title, author, or ISBN" />
-        </div>
       </div>
       <div className="search-books-results">
         <ol className="books-grid"></ol>
