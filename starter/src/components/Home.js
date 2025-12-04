@@ -7,24 +7,31 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const [books, setBooks] = useState([]); // maybe this shouldn't be state because it never changes
-  const [shelvedBooks, setShelvedBooks] = useState({});
+  // const [shelvedBooks, setShelvedBooks] = useState({});
 
   useEffect(() => {
     // TODO: check this way of using use effect
     async function fetchBooks() {
       const data = await getAll();
-      return data;
+
+      setBooks(data);
+
+      console.log(books);
+
+      const shelvedBooks = books.reduce((map, book) => {
+        if (book.shelf in map) {
+          map[book.shelf].push(book);
+        } else {
+          map[book.shelf] = [book];
+        }
+
+        return map;
+      }, {});
+
+      console.log("sheleved Book", shelvedBooks);
     }
 
-    const books = fetchBooks();
-
-    const shelevedBooks_example = books.reduce((map, book) => {
-      if (!map.has(book.shelf)) map.set(book.shelf, []);
-      map.get(book.shelf).push(book);
-      return map;
-    }, {}); // this should be the state
-
-    setShelvedBooks(shelevedBooks_example);
+    fetchBooks();
   }, []);
 
   return (
@@ -35,34 +42,23 @@ export default function Home() {
 
       <div className="list-books-content">
         <div>
-          {Array.from(shelvedBooks.entries()).map(([key, value]) => (
-            <BookShelf key={key} books={value} title={key} />
-          ))}
+          <BookShelf
+            key="1"
+            title="Currently Reading"
+            books={books.filter((book) => book.shelf == "currentlyReading")}
+          ></BookShelf>
 
-          <div className="bookshelf">
-            <h2 className="bookshelf-title">Want to Read</h2>
-            <div className="bookshelf-books">
-              <ol className="books-grid">
-                {books.map((book) => (
-                  <li>
-                    <Book key={book.id} book={book}></Book>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-          <div className="bookshelf">
-            <h2 className="bookshelf-title">Read</h2>
-            <div className="bookshelf-books">
-              <ol className="books-grid">
-                {books.map((book) => (
-                  <li>
-                    <Book key={book.id} book={book}></Book>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
+          <BookShelf
+            key="2"
+            title="Read"
+            books={books.filter((book) => book.shelf == "read")}
+          ></BookShelf>
+
+          <BookShelf
+            key="3"
+            title="Want to Read"
+            books={books.filter((book) => book.shelf == "wantToRead")}
+          ></BookShelf>
         </div>
       </div>
       <div className="open-search">
