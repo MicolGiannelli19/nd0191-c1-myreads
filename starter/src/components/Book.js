@@ -1,6 +1,7 @@
 // TODO: of basic component strucutre
 
 import BookShelfChanger from "./BookShelfChanger";
+
 export default function Book({ book }) {
   return (
     <div className="book">
