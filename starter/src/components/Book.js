@@ -10,11 +10,13 @@ export default function Book({ book }) {
           style={{
             width: 128,
             height: 193,
-            // TODO: change book cover
             backgroundImage: `url(${book.imageLinks.smallThumbnail})`,
           }}
         ></div>
-        <BookShelfChanger></BookShelfChanger>
+        <BookShelfChanger
+          selected={book.shelf}
+          bookId={book.id}
+        ></BookShelfChanger>
       </div>
       <div className="book-title">{book.title}</div>
       <div className="book-authors">{book.authors.join(", ")}</div>

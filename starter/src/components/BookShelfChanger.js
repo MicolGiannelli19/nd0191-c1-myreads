@@ -1,8 +1,17 @@
-export default function BookShelfChanger() {
+import { update } from "../BooksAPI";
+// todo: maybe shelf change functionlity should be added to book as it has the shelf state or to shelf
+export default function BookShelfChanger({ selected, bookId }) {
+  console.log("default shelf is:", selected);
+
+  function onShelfChange(newShelf) {
+    // Should this change both locally and thorugh the api
+    update(bookId, newShelf);
+  }
+
   return (
     <div className="book-shelf-changer">
-      <select>
-        <option value="none" disabled>
+      <select defaultValue={selected} onChange={(e) => e.target.selected}>
+        <option value="moveTo" disabled>
           Move to...
         </option>
         <option value="currentlyReading">Currently Reading</option>
