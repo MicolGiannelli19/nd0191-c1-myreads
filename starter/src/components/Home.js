@@ -17,18 +17,6 @@ export default function Home() {
       setBooks(data);
 
       console.log(books);
-
-      const shelvedBooks = books.reduce((map, book) => {
-        if (book.shelf in map) {
-          map[book.shelf].push(book);
-        } else {
-          map[book.shelf] = [book];
-        }
-
-        return map;
-      }, {});
-
-      console.log("sheleved Book", shelvedBooks);
     }
 
     fetchBooks();
@@ -45,7 +33,7 @@ export default function Home() {
           <BookShelf
             key="1"
             title="Currently Reading"
-            books={books.filter((book) => book.shelf == "currentlyReading")}
+            books={books.filter((book) => book.shelf === "currentlyReading")}
           ></BookShelf>
 
           <BookShelf
