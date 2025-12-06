@@ -8,10 +8,15 @@ import { search } from "../BooksAPI";
 
 export default function SearchBooks() {
   const [books, setBooks] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    search().then((data) => console.log("books", data));
-  }, []);
+    if (searchValue) {
+      search(searchValue).then((data) => setBooks(data));
+    } else {
+      console.log("Search Value is empty");
+    }
+  }, [searchValue]);
 
   return (
     <div className="search-books">
@@ -19,19 +24,24 @@ export default function SearchBooks() {
         {" "}
         Back to home{" "}
       </Link>
+
       <div className="search-books-input-wrapper">
-        <input type="text" placeholder="Search by title, author, or ISBN" />
+        <input
+          type="text"
+          placeholder="Search by title, author, or ISBN"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
       </div>
+
       <div className="search-books-bar"></div>
       <div className="search-books-results">
         <ol className="books-grid">
-          <li>
-            {books.map((book) => (
-              <li>
-                <Book key={books.id} book={book}></Book>
-              </li>
-            ))}
-          </li>
+          {books.map((book) => (
+            <li>
+              <Book key={books.id} book={book}></Book>
+            </li>
+          ))}
         </ol>
       </div>
     </div>
