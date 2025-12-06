@@ -40,13 +40,13 @@ export default function Home() {
           <BookShelf
             key="2"
             title="Read"
-            books={books.filter((book) => book.shelf == "read")}
+            books={books.filter((book) => book.shelf === "read")}
           ></BookShelf>
 
           <BookShelf
             key="3"
             title="Want to Read"
-            books={books.filter((book) => book.shelf == "wantToRead")}
+            books={books.filter((book) => book.shelf === "wantToRead")}
           ></BookShelf>
         </div>
       </div>

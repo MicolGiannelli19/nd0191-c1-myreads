@@ -11,15 +11,20 @@ export default function SearchBooks() {
 
   useEffect(() => {
     if (searchValue) {
-      search(searchValue).then((res) => {
-        if (res.error || !Array.isArray(res)) {
-          console.log("error response", res);
+      search(searchValue)
+        .then((res) => {
+          if (res.error || !Array.isArray(res)) {
+            console.log("error response", res);
+            setBooks([]);
+            return;
+          }
+          console.log("successfult response", books);
+          setBooks(res);
+        })
+        .catch((err) => {
+          console.error("Search failed", err);
           setBooks([]);
-          return;
-        }
-        console.log("successfult response", books);
-        setBooks(res);
-      });
+        });
     } else {
       setBooks([]);
     }
