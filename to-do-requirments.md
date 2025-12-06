@@ -50,6 +50,7 @@ setUser((prev) => ({ ...prev, age: 31 }));
 ```
 
 WARNING: AVOID PROP CLUTTER LIKE THIS PASS IN OBJECT DIRECTLY
+TODO: fix put request
 
 ```jsx
 <Book
@@ -60,3 +61,7 @@ WARNING: AVOID PROP CLUTTER LIKE THIS PASS IN OBJECT DIRECTLY
   image={book.image}
 />
 ```
+
+### UseEffect notes
+
+- Use effect with no parameter for our dependecies runs every time the component renders

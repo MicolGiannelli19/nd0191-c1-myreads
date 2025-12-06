@@ -10,12 +10,8 @@ export default function BookShelf({ title, books, changeShelf }) {
           {/*  TODO: add key to each component when looping through*/}
           {books.map((book) => {
             return (
-              <li>
-                <Book
-                  key={book.id}
-                  book={book}
-                  changeShelf={changeShelf}
-                ></Book>
+              <li key={book.id}>
+                <Book book={book} changeShelf={changeShelf}></Book>
               </li>
             );
           })}

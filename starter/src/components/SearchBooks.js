@@ -10,16 +10,18 @@ export default function SearchBooks() {
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
+    // setSearchValue("a");
+    console.log(searchValue);
     if (searchValue) {
-      search(searchValue)
+      search(searchValue, "10")
         .then((res) => {
-          if (res.error || !Array.isArray(res)) {
+          if (res.error || !Array.isArray(res.books)) {
             console.log("error response", res);
             setBooks([]);
             return;
           }
-          console.log("successfult response", books);
-          setBooks(res);
+          console.log("successfult response", res.books);
+          setBooks(res.books);
         })
         .catch((err) => {
           console.error("Search failed", err);
