@@ -2,7 +2,7 @@
 
 import BookShelfChanger from "./BookShelfChanger";
 
-export default function Book({ book }) {
+export default function Book({ book, changeShelf }) {
   return (
     <div className="book">
       <div className="book-top">
@@ -18,6 +18,7 @@ export default function Book({ book }) {
         <BookShelfChanger
           selected={book.shelf}
           bookId={book.id}
+          changeShelf={changeShelf}
         ></BookShelfChanger>
       </div>
       <div className="book-title">{book.title}</div>

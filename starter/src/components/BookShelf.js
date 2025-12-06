@@ -1,6 +1,6 @@
 import Book from "./Book";
 
-export default function BookShelf({ title, books }) {
+export default function BookShelf({ title, books, changeShelf }) {
   // TODO: correctly add in book component
   return (
     <div className="bookshelf">
@@ -11,7 +11,11 @@ export default function BookShelf({ title, books }) {
           {books.map((book) => {
             return (
               <li>
-                <Book key={book.id} book={book}></Book>
+                <Book
+                  key={book.id}
+                  book={book}
+                  changeShelf={changeShelf}
+                ></Book>
               </li>
             );
           })}
