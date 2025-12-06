@@ -46,8 +46,8 @@ export default function SearchBooks() {
       <div className="search-books-results">
         <ol className="books-grid">
           {books.map((book) => (
-            <li>
-              <Book key={books.id} book={book}></Book>
+            <li key={books.id}>
+              <Book book={book}></Book>
             </li>
           ))}
         </ol>
