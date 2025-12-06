@@ -2,6 +2,23 @@
 
 This is a forked repository as part of a React Course I am taking with Udacity 
 
+
+## 🚀 Installation & Launch (Create React App)
+
+1. **Install dependencies**
+
+```bash
+npm install
+```
+
+2. **Start the project**
+
+```bash
+npm start
+```
+
+This runs the app in development mode at **[http://localhost:3000/](http://localhost:3000/)**.
+
 ## What I got as starter code 
 
 ```bash
