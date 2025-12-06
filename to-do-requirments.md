@@ -5,11 +5,8 @@
 1. Handle basic routing and set all the views I need
 1. Devide the page in components
 
-1. Solve this error:
-
-```
-ReactDOM.render is no longer supported in React 18. Use createRoot instead. Until you switch to the new API, your app will behave as if it's running React 17. Learn more
-```
+~~1. Solve import this error:~~ 2. Find a way to have column passed down to object
+Solve git issue
 
 # Notes
 
