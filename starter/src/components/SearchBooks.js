@@ -12,29 +12,33 @@ export default function SearchBooks() {
 
   useEffect(() => {
     if (searchValue) {
-      search(searchValue).then((data) => setBooks(data));
+      search(searchValue).then((res) => {
+        if (res.error || !Array.isArray(res)) {
+          console.log("error response", res);
+          setBooks([]);
+          return;
+        }
+        console.log("successfult response", books);
+        setBooks(res);
+      });
     } else {
-      console.log("Search Value is empty");
+      setBooks([]);
     }
   }, [searchValue]);
 
   return (
     <div className="search-books">
-      <Link className="close-search" to="/">
-        {" "}
-        Back to home{" "}
-      </Link>
-
-      <div className="search-books-input-wrapper">
-        <input
-          type="text"
-          placeholder="Search by title, author, or ISBN"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
+      <div className="search-books-bar">
+        <Link className="close-search" to="/"></Link>
+        <div className="search-books-input-wrapper">
+          <input
+            type="text"
+            placeholder="Search by title, author, or ISBN"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+        </div>
       </div>
-
-      <div className="search-books-bar"></div>
       <div className="search-books-results">
         <ol className="books-grid">
           {books.map((book) => (

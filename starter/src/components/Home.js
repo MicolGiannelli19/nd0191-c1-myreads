@@ -11,6 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     // TODO: check this way of using use effect
+    // TODO: check my use of async funciton
     async function fetchBooks() {
       const data = await getAll();
 
@@ -20,7 +21,7 @@ export default function Home() {
     }
 
     fetchBooks();
-  }, []);
+  });
 
   return (
     <div className="list-books">

@@ -11,9 +11,10 @@ export default function Book({ book }) {
           style={{
             width: 128,
             height: 193,
-            backgroundImage: `url(${book.imageLinks.smallThumbnail})`,
+            backgroundImage: `url(${book.imageLinks?.smallThumbnail})`,
           }}
         ></div>
+        {/* TODO: hanfel book shelf not existing */}
         <BookShelfChanger
           selected={book.shelf}
           bookId={book.id}
